@@ -5,9 +5,9 @@
 		"baseUrl": "./",
 		"paths": {
 			// "@inkdrop-ui/*": ["inkdropmm/ui/*"],
-			"@inkdropmm/*": ["inkdropmm/*"],
-			"@hooks": ["src/hooks/index.ts"],
-			"@/*": ["./*"]
+			"@inkdropmm/*": ["src/inkdropmm/*"],
+			"@hooks": ["src/hooks/index.ts"]
+			// "@/*": ["./*"]
 		}
 	},
 	"include": ["**/*.ts", "**/*.tsx"]
