@@ -1,6 +1,6 @@
 import { Redirect } from 'expo-router'
 
 export default function Page() {
-	return <Redirect href='tabs/chat' />
+	return <Redirect href='tabs' />
 	// return null
 }

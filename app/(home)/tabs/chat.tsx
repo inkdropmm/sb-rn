@@ -2,7 +2,7 @@ import { Badge, Flex, Pressable, Text, TextInput } from '@inkdropmm/ui'
 // import { AddIconBtn } from '@inkdrop/ui/app'
 import { IconArrowUp } from '@tabler/icons-react-native'
 import { useEffect, useRef, useState } from 'react'
-import { FlatList, KeyboardAvoidingView, Platform, View } from 'react-native'
+import { FlatList, Keyboard, KeyboardAvoidingView, Platform, View } from 'react-native'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { useSocket } from '@hooks'
@@ -22,7 +22,7 @@ const msgs = Array.from({ length: 10 }, (_, i) => ({
 const Page = () => {
 	const [messages, setMessages] = useState<any[]>([])
 	const [input, setInput] = useState('')
-	const [socket, ready] = useSocket()
+	const [socket, ready] = useSocket({ userId: '662e34a254ba5a555930bf63' })
 
 	const ref = useRef<FlatList<any>>(null)
 
@@ -81,15 +81,16 @@ const Page = () => {
 			/>
 			<KeyboardAvoidingView keyboardVerticalOffset={110} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
 				<Flex style={{ padding: 8, gap: 8 }}>
-					<TextInput value={input} onChangeText={setInput} placeholder='Start typing... ' />
+					<TextInput multiline value={input} onChangeText={setInput} placeholder='Start typing... ' />
 					<Pressable
 						onPress={() => {
 							socket.emit('chat.message', input)
+							Keyboard.dismiss()
 							// console.log('sent')
 						}}
-						style={{ padding: 5, backgroundColor: '#bbb' }}
+						style={{ padding: 8, borderRadius: 5, backgroundColor: '#006684ff' }}
 					>
-						<IconArrowUp />
+						<IconArrowUp color='#fff' />
 					</Pressable>
 				</Flex>
 			</KeyboardAvoidingView>

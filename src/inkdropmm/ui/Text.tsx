@@ -15,7 +15,7 @@ const Text = (props: Props) => {
 	const { children, variant = 'body', style } = props
 
 	return (
-		<RNText {...{}} style={[VARIANTS[variant], style]}>
+		<RNText {...{}} style={[{ fontFamily: 'SNPro-Medium' }, VARIANTS[variant], style]}>
 			{children}
 		</RNText>
 	)
