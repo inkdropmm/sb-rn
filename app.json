@@ -32,6 +32,12 @@
 				{
 					"fonts": ["./assets/fonts/SNPro/SNPro-Thin.otf"]
 				}
+			],
+			[
+				"expo-location",
+				{
+					"locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+				}
 			]
 		]
 	}
